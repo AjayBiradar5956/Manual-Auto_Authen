@@ -1,0 +1,31 @@
+header {
+    margin: 0;
+    background-color: blueviolet;
+    height: 60px;
+    color: white;
+}
+
+#container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+ul li a {
+    color: white;
+    text-decoration: none;
+    margin-right: 10px;
+    font-size: 1.1rem;
+}
+
+#tags li {
+    list-style: none;
+    display: inline-block;
+}
+
+
+
+body {
+    margin: 0;
+}
