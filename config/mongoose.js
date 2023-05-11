@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-// mongoose.connect('mongodb://localhost/codeial_dev')
 
 main().catch((err) => console.log(err));
 
