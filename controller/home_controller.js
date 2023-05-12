@@ -1,4 +1,6 @@
 const Post = require('../model/post');
+const user = require('../model/user');
+
 module.exports.home = function (req, res) {
     // Post.find({})
     //     .then((docs) => {
@@ -9,6 +11,7 @@ module.exports.home = function (req, res) {
     //     })
 
     //Populate the user who create the post
+    let fetchedPosts;
     Post.find({})
         .populate('user')
         .populate({
@@ -18,11 +21,17 @@ module.exports.home = function (req, res) {
             }
         })
         .exec()
-        .then(function (posts) {
+        .then((posts) => {
+            fetchedPosts = posts;
+            return user.find({}).exec();
+        })
+        .then((users) => {
             return res.render('home', {
                 title: 'Codial | Home',
-                posts: posts
+                posts: fetchedPosts,
+                all_users: users,
             });
         })
+
 
 }

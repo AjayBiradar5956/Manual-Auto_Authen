@@ -1,8 +1,16 @@
 <h1>Profile Page</h1>
-<p>
-    Name: <%= user.name %>
-</p>
-<p>Email: <%= user.email %>
-</p>
 
-<a href="/user/sign-out"><input type="submit" value="Sign Out"></a>
+
+<% if(user.id==profile_user.id){ %>
+    <form action="/user/update/<%=profile_user.id%>" method="post">
+        <input type="text" value="<%=profile_user.name%>" name="name" placeholder="Your Name" required>
+        <input type="email" value="<%=profile_user.email%>" name="email" placeholder="Your Email" required>
+        <input type="submit" value="Update">
+    </form>
+    <% }else { %>
+        <p>
+            Name: <%= profile_user.name %>
+        </p>
+        <p>Email: <%= profile_user.email %>
+        </p>
+        <% } %>

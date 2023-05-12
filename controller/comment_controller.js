@@ -21,3 +21,24 @@ module.exports.create = function (req, res) {
 
 }
 
+module.exports.destroy = function (req, res) {
+    Comment.findById(req.params.id)
+        .then((comment) => {
+            if (comment.user == req.user.id) {
+                let post_id = comment.post;
+                comment.deleteOne();
+
+                Post.findByIdAndUpdate(post_id, { $pull: { comments: req.params.id } })
+                    .then((post) => {
+                        return res.redirect('/');
+                    })
+            } else {
+                return res.redirect('/');
+            }
+        })
+}
+
+
+//MAKE CHECK WHEN USERS POST HAS OTHER USERS COMMENTS AND YOU CAN DELETE OTHERS COMMENTS AS WELL
+
+

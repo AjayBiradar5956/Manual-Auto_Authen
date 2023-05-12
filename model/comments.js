@@ -7,7 +7,7 @@ const commentSchema = new mongoose.Schema({
     },
     user: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'users',
+        ref: 'users',//FOR ALL REFS USE THE COLLECTION NAME WHICH IS IN YOUR DB(ROBO3T)
     },
     post: {
         type: mongoose.Schema.Types.ObjectId,
