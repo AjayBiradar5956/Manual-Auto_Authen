@@ -5,7 +5,8 @@ const user = require('../model/user');
 
 // Authentication using passport
 passport.use(new LocalStratergy({
-    usernameField: 'email'
+    usernameField: 'email',
+    passReqToCallback: true,
 },
     function (email, password, done) {
         user.findOne({ email: email })
