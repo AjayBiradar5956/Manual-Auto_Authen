@@ -35,6 +35,7 @@ module.exports.home = async function (req, res) {
     //     })
     try {
         let fetchedPosts = await Post.find({})
+            .sort('-createdAt')
             .populate('user')
             .populate({
                 path: 'comments',
@@ -42,7 +43,6 @@ module.exports.home = async function (req, res) {
                     path: 'user'
                 }
             })
-
         let users = await user.find({});
         return res.render('home', {
             title: 'Codial | Home',

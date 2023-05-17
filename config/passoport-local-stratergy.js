@@ -6,7 +6,6 @@ const user = require('../model/user');
 // Authentication using passport
 passport.use(new LocalStratergy({
     usernameField: 'email',
-    passReqToCallback: true,
 },
     function (email, password, done) {
         user.findOne({ email: email })
@@ -17,6 +16,7 @@ passport.use(new LocalStratergy({
                 }
                 else {
                     done(null, docs);
+
                 }
             }).catch((err) => {
                 console.log('error while passport auth');

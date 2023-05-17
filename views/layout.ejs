@@ -8,8 +8,9 @@
     <title>
         <%= title %>
     </title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"
+        integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/CSS/layout.css">
     <link rel="stylesheet" href="/CSS/footer.css">
     <link rel="stylesheet" href="/CSS/header.css">
@@ -26,17 +27,7 @@
         </main>
         <%- include('_footer'); %>
             <%- script %>
-                <script>
-                 <% if (flash.success && flash.success.length > 0) { %>
-                        new Noty({
-                            theme: 'relax',
-                            text: '<%= flash.success %>',
-                            type: 'success',
-                            layout: 'top-right',
-                            timeout: 2000,
-                        }).show();
-                        <%}%>
-                </script>
+
 </body>
 
 </html>

@@ -1,15 +1,14 @@
-<li>
+<li id="post-<%= docs._id %>">
     <p>
         <% if(locals.user && locals.user.id==docs.user.id){ %>
             <small>
-                <a href="/post/destroy/<%=docs.id%>">X</a>
+                <a class='delete-post-button' class="delete-post-button" href="/post/destroy/<%=docs.id%>">X</a>
             </small>
             <% } %>
                 <%= docs.content %>
                     <small>
                         <%= docs.user.name %>
                     </small>
-
     </p>
 
 
