@@ -7,7 +7,8 @@ const db = require('./config/mongoose');
 const user = require('./model/user');
 const session = require('express-session');
 const passport = require('passport');
-const passportLocal = require('./config/passoport-local-stratergy');
+const passportLocal = require('./config/passport-local-stratergy');
+const passportJwt = require('./config/passport-jwt-stratergy');
 const MongoStore = require('connect-mongo');
 
 
@@ -16,7 +17,8 @@ app.use(express.urlencoded());
 app.use(cookieParser());
 
 app.use(express.static('./assets'));
-
+//make the uploads path available to the browser
+app.use('/uploads', express.static('./uploads'));
 app.use(expressLayout);
 app.set('layout extractStyles', true);
 app.set('layout extractScripts', true);
@@ -47,6 +49,7 @@ app.use(passport.session());
 app.use(passport.setAuthenticatedUser);
 
 app.use('/', require("./route/home"));
+
 
 app.listen(port, function (err) {
     if (err) {
