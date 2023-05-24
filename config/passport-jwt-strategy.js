@@ -1,5 +1,5 @@
 const passport = require('passport');
-const JWTStratergy = require('passport-jwt').Strategy;
+const JWTStrategy = require('passport-jwt').Strategy;
 const ExtractJWT = require('passport-jwt').ExtractJwt;
 
 const user = require('../model/user');
@@ -9,7 +9,7 @@ let opts = {
     secretOrKey: 'codeial',
 }
 
-passport.use(new JWTStratergy(opts, function (jwtPayload, done) {
+passport.use(new JWTStrategy(opts, function (jwtPayload, done) {
     user.findById(jwtPayload._id)
         .then((docs) => {
             if (docs) {

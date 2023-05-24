@@ -7,9 +7,10 @@ const db = require('./config/mongoose');
 const user = require('./model/user');
 const session = require('express-session');
 const passport = require('passport');
-const passportLocal = require('./config/passport-local-stratergy');
-const passportJwt = require('./config/passport-jwt-stratergy');
+const passportLocal = require('./config/passport-local-strategy');
+const passportJwt = require('./config/passport-jwt-strategy');
 const MongoStore = require('connect-mongo');
+const passportGoogle = require('./config/passport-google-oauth2-strategy');
 
 
 app.use(express.urlencoded());

@@ -1,10 +1,10 @@
 const passport = require('passport');
-const LocalStratergy = require('passport-local').Strategy;
+const LocalStrategy = require('passport-local').Strategy;
 const user = require('../model/user');
 
 
 // Authentication using passport
-passport.use(new LocalStratergy({
+passport.use(new LocalStrategy({
     usernameField: 'email',
 },
     function (email, password, done) {
