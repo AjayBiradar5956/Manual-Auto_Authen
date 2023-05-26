@@ -9,7 +9,7 @@ let transporter = nodemailer.createTransport({
     secure: false,
     auth: {
         user: 'aj813825@gmail.com',
-        pass: 'gbphufpugomfkjdm'
+        pass: 'xxx'
         // -- enable 2fa, go to profile(manage profile setting and then search for app password and generate one app password)
     },
 });
